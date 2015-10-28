@@ -22,6 +22,10 @@ public class DocumentBuilder {
 
   public void addBoundingBoxFields(BoundingBox boundingBox, Document document) {
 
+    if (new InternationalDateLine().spans(boundingBox)) {
+      throw new IllegalArgumentException("Bounding box spans the international date line. Needs to be split in two documents! See InternationalDateLine#split");
+    }
+
     document.add(new DoubleField(indexFields.getSouth().getName(), boundingBox.getSouthLatitude(), indexFields.getSouth().getFieldType()));
     document.add(new DoubleField(indexFields.getWest().getName(), boundingBox.getWestLongitude(), indexFields.getWest().getFieldType()));
     document.add(new DoubleField(indexFields.getNorth().getName(), boundingBox.getNorthLatitude(), indexFields.getNorth().getFieldType()));

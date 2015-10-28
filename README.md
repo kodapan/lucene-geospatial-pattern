@@ -11,4 +11,4 @@ is very important to you, you will have to post process your responses with more
 
 ![Image of indexed line and query](https://raw.githubusercontent.com/kodapan/lucene-geospatial-pattern/master/documentation/indexed%20line%20and%20query.png)
 
-This code also support queries that span the international date line by cutting such queries in two.
+This code also support geometries and queries that span the international date line by cutting such queries in two.
